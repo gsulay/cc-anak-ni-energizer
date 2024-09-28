@@ -63,7 +63,7 @@ function run(helper, station, side)
         end
 
             --waits for the train to arrive
-        timer = 0
+        -- timer = 0
         while true do
             if station.isTrainPresent() then
                 break
@@ -72,8 +72,8 @@ function run(helper, station, side)
             --     print("Train not found")
             --     break
             -- end
-            timer = timer + 1
-            sleep(1)
+            -- timer = timer + 1
+            -- sleep(1)
         end
 
         --laod train schedule
@@ -83,8 +83,5 @@ function run(helper, station, side)
 
     end
 end
-
-
-run(helper, station, side)
 
 return {run=run}
