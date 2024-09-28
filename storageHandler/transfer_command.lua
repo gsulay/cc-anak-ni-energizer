@@ -34,3 +34,5 @@ function run(input, output, transfer_station, transfer)
         
     end
 end
+
+return {run = run}
