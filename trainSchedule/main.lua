@@ -12,14 +12,26 @@ local function has_value (tab, val)
 
     return false
 end
-function run(helper, station, side)
+
+function run(helper, station, side, mainMon, trainMon)
     rednet.open(side)
 
     local station_name = station.getStationName()
     while true do
-        print("Waiting for message...")
+
+        mainMonCursor = 1
+        trainMonCursor = 1
+        mainMon.clear()
+
+        mainMon.write("Waiting for message...")
+        mainMonCursor = mainMonCursor + 1
+        mainMon.setCursorPos(1,mainMonCursor) 
         id, message = rednet.receive("train:"..station_name)
-        print("Message received: "..tostring(message))
+
+          
+        mainMon.write("Message received: "..tostring(message))
+        mainMonCursor = mainMonCursor + 1
+        mainMon.setCursorPos(1,mainMonCursor)
 
         from = message["from"]
         to = message["to"]
@@ -50,16 +62,22 @@ function run(helper, station, side)
         end
 
         if available_hub == nil then
-            print("No available train found")
+            trainMon.write("No available train found")
+            trainMonCursor = trainMonCursor + 1
+            trainMon.setCursorPos(1,trainMonCursor)
         else
-            print("Available train found: "..available_hub.getStationName())
+            trainMon.write("Available train found: "..available_hub.getStationName())
+            trainMonCursor = trainMonCursor + 1
+            trainMon.setCursorPos(1,trainMonCursor)
         end
         
             --send train to load station
         if available_hub ~= nil then
             schedule = helper.loadSingleDestinationSchedule(available_hub.getStationName(), station_name)
             available_hub.setSchedule(schedule)
-            print("Schedule loaded from "..available_hub.getStationName().." to "..station_name)
+            trainMon.write("Schedule loaded from "..available_hub.getStationName().." to "..station_name)
+            trainMonCursor = trainMonCursor + 1
+            trainMon.setCursorPos(1,trainMonCursor)
         end
 
             --waits for the train to arrive
@@ -68,6 +86,8 @@ function run(helper, station, side)
             if station.isTrainPresent() then
                 break
             end
+
+            trainMon.write(1, trainMon)
             -- if timer > 10 then
             --     print("Train not found")
             --     break
@@ -79,7 +99,7 @@ function run(helper, station, side)
         --laod train schedule
         schedule = helper.loadIdleSchedule(from, to, available_hub.getStationName())
         station.setSchedule(schedule)
-        print("Schedule loaded from "..from.." to "..to)
+        trainMon.write("Schedule loaded from "..from.." to "..to)
 
     end
 end
