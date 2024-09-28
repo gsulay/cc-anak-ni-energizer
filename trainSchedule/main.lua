@@ -84,4 +84,7 @@ function run(helper, station, side)
     end
 end
 
+
 run(helper, station, side)
+
+return {run=run}
