@@ -1,8 +1,8 @@
-local input     = "storagedrawers:controller_0"
-local output    = "minecraft:chest_2"
-rednet.open("left")
-transfer = require("storage_transfer")
-local transfer_station = "transfer-station"
+-- local input     = "storagedrawers:controller_0"
+-- local output    = "minecraft:chest_2"
+-- rednet.open("left")
+-- transfer = require("storage_transfer")
+-- local transfer_station = "transfer-station"
 
 
 function run(input, output, transfer_station, transfer)
