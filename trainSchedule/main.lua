@@ -1,6 +1,6 @@
-local helper = require("helper")
-local station = peripheral.wrap("left")
-local side = "right"
+-- local helper = require("helper")
+-- local station = peripheral.wrap("left")
+-- local side = "right"
 
 --function if value is in table
 local function has_value (tab, val)
