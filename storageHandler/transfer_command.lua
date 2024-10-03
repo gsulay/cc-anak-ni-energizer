@@ -6,6 +6,7 @@
 
 
 function run(input, output, transfer_station, transfer)
+    wrapped_station = peripheral.wrap(transfer_station)
     while true do
         print("waiting on message...")
         id, message = rednet.receive("storage-request")
@@ -30,9 +31,25 @@ function run(input, output, transfer_station, transfer)
             --load train
             trainMessage = {to = message["to"], from = transfer_station}
             rednet.broadcast(trainMessage,"train:"..transfer_station)
+            sleep(1)
+
+            --stages for loading train
+                --check if train is present
+            while true do
+                if wrapped_station.isTrainPresent() then
+                    break
+                end
+            end
+                --check if train has left
+            while true do
+                if wrapped_station.isTrainPresent() == false then
+                    break
+                end
+            end
+
         end    
         
     end
 end
-
+    
 return {run = run}
