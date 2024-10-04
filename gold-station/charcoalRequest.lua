@@ -1,7 +1,7 @@
 -- requestItem = require("requestItem")
 -- local station_name = "gold-station"
 -- charcoalInventory = ""
---edit pair 1223548
+--edit pair 6
 
 function charcoalRun(charcoalInventory, station_name, requestItem, side)
     rednet.open(side)
