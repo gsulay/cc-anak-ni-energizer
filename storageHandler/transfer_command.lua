@@ -3,7 +3,7 @@
 -- rednet.open("left")
 -- transfer = require("storage_transfer")
 -- local transfer_station = "transfer-station"
--- edit pair 3
+-- edit pair 4
 
 
 function run(input, output, transfer_station, transfer, side)
@@ -28,12 +28,12 @@ function run(input, output, transfer_station, transfer, side)
             wrapped_station = peripheral.wrap(transfer_station)
             for i=1, #message["itemList"] do
                 curItemList = message["itemList"][i]
-                -- handle multiple stack
+
                 
                 --handle multiple stacks (>64)
                 local amount = curItemList["amount"]
                 while amount ~= 0 do
-                    if amount < 64 then
+                    if amount > 64 then
                         stat = transfer.transfer(input, output, curItemList["item"], 64)
                         amount = amount - 64
                     else
