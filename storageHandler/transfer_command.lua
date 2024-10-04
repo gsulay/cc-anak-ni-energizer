@@ -5,7 +5,8 @@
 -- local transfer_station = "transfer-station"
 
 
-function run(input, output, transfer_station, transfer)
+function run(input, output, transfer_station, transfer, side)
+    rednet.open(side)
     wrapped_station = peripheral.wrap(transfer_station)
     while true do
         print("waiting on message...")
