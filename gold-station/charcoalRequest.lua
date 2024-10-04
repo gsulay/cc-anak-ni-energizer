@@ -9,7 +9,7 @@ function charcoalRun(charcoalInventory, station_name, requestItem)
     while true do
         curCharcoal = 0
 
-        for i=1, #itemDetails do
+        for i=1, 4 do
             curItem = charcoalWrapped.getItemDetail(i)
             print(curItem)
 
