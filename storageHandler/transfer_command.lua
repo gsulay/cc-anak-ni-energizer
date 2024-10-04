@@ -3,7 +3,7 @@
 -- rednet.open("left")
 -- transfer = require("storage_transfer")
 -- local transfer_station = "transfer-station"
--- edit pair 1
+-- edit pair 3
 
 
 function run(input, output, transfer_station, transfer, side)
