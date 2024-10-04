@@ -1,7 +1,7 @@
 -- local helper = require("helper")
 -- local station = peripheral.wrap("left")
 -- local side = "right"
---edit pair 5
+--edit pair 6
 
 --function if value is in table
 local function has_value (tab, val)
@@ -26,7 +26,8 @@ function run(helper, station, side, mainMon, trainMon)
 
         mainMon.write("Waiting for message...")
         mainMonCursor = mainMonCursor + 1
-        mainMon.setCursorPos(1,mainMonCursor) 
+        mainMon.setCursorPos(1,mainMonCursor)
+        print("Waiting for message on protocol:".."train:"..station_name)
         id, message = rednet.receive("train:"..station_name)
 
           
