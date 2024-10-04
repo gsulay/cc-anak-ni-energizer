@@ -11,7 +11,13 @@ function run(input, output, transfer_station, transfer, side)
     station_name = peripheral.wrap(transfer_station).getStationName()
     while true do
         print("waiting on message...")
-        id, message = rednet.receive("storage-request")
+        received = false
+        while received == false do
+            id, message = rednet.receive("storage-request", math.random(1,10))
+            if id ~= nil then
+                received = true
+            end
+        end
         print("Message received: "..tostring(message))
         
         station = message["to"]
