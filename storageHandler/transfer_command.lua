@@ -3,11 +3,12 @@
 -- rednet.open("left")
 -- transfer = require("storage_transfer")
 -- local transfer_station = "transfer-station"
+-- edit pair 1
 
 
 function run(input, output, transfer_station, transfer, side)
     rednet.open(side)
-    wrapped_station = peripheral.wrap(transfer_station)
+    station_name = peripheral.wrap(transfer_station).getStationName()
     while true do
         print("waiting on message...")
         id, message = rednet.receive("storage-request")
@@ -24,14 +25,15 @@ function run(input, output, transfer_station, transfer, side)
         
         else --load to storage station
             --transfer items
+            wrapped_station = peripheral.wrap(transfer_station)
             for i=1, #message["itemList"] do
                 curItemList = message["itemList"][i]
                 stat = transfer.transfer(input, output, curItemList["item"], curItemList["amount"])
                 print("Transfer status: "..tostring(stat))
             end
             --load train
-            trainMessage = {to = message["to"], from = transfer_station}
-            rednet.broadcast(trainMessage,"train:"..transfer_station)
+            trainMessage = {to = message["to"], from = station_name}
+            rednet.broadcast(trainMessage,"train:"..station_name)
             sleep(1)
 
             --stages for loading train
