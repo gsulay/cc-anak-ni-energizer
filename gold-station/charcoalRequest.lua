@@ -16,6 +16,7 @@ function charcoalRun(charcoalInventory, station_name, requestItem)
             if curItem ~= nil then
                 if curItem["name"] == "minecraft:charcoal" then
                     curCharcoal = curCharcoal + curItem["count"]
+                    print(curCharcoal)
                 end
             end
         end
