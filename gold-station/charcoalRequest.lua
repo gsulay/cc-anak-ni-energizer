@@ -1,7 +1,7 @@
 -- requestItem = require("requestItem")
 -- local station_name = "gold-station"
 -- charcoalInventory = ""
---edit pair 7
+--edit pair 8
 
 function charcoalRun(charcoalInventory, station_name, requestItem, side)
     rednet.open(side)
@@ -10,7 +10,7 @@ function charcoalRun(charcoalInventory, station_name, requestItem, side)
     while true do
         curCharcoal = 0
 
-        for i=1, 4 do
+        for i=1, 2 do
             curItem = charcoalWrapped.getItemDetail(i)
 
             if curItem ~= nil then
@@ -41,7 +41,7 @@ function charcoalRun(charcoalInventory, station_name, requestItem, side)
                 itemDetails = charcoalWrapped.list()
                 curCharcoal = 0
         
-                for i=1, 4 do
+                for i=1, 2 do
                     curItem = charcoalWrapped.getItemDetail(i)
                     if curItem ~= nil then
                         if curItem["name"] == "minecraft:charcoal" then
