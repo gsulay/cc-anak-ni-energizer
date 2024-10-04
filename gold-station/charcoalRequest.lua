@@ -10,10 +10,15 @@ function charcoalRun(charcoalInventory, station_name, requestItem)
         curCharcoal = 0
 
         for i=1, #itemDetails do
-            if itemDetails[i]["name"] == "minecraft:charcoal" then
-                curCharcoal = curCharcoal + itemDetails[i]["count"]
+            curItem = itemDetails.getItemDetail(i)
+
+            if curItem ~= nil then
+                if curItem["name"] == "minecraft:charcoal" then
+                    curCharcoal = curCharcoal + curItem["count"]
+                end
             end
         end
+
         print("current:Charcoal is at:"..curCharcoal)
 
         if (curCharcoal < 256) and (ongoing == false) then
