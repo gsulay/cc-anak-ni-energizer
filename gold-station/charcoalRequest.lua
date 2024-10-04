@@ -1,17 +1,16 @@
 -- requestItem = require("requestItem")
 -- local station_name = "gold-station"
 -- charcoalInventory = ""
---edit pair 1223547
+--edit pair 1223548
 
 function charcoalRun(charcoalInventory, station_name, requestItem)
     charcoalWrapped = peripheral.wrap(charcoalInventory)
     ongoing = false
     while true do
-        itemDetails = charcoalWrapped.list()
         curCharcoal = 0
 
         for i=1, #itemDetails do
-            curItem = itemDetails.getItemDetail(i)
+            curItem = charcoalWrapped.getItemDetail(i)
             print(curItem)
 
             if curItem ~= nil then
