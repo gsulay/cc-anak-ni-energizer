@@ -33,8 +33,8 @@ function run(input, output, transfer_station, transfer, side)
             end
             --load train
             trainMessage = {to = message["to"], from = station_name}
-            print("Broadcasting: "..station_name)
-            rednet.broadcast(trainMessage,"train:"..station_name)
+            print("Broadcasting: "..message["to"])
+            rednet.broadcast(trainMessage,"train:"..message["to"])
             sleep(1)
 
             -- --stages for loading train
