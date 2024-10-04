@@ -9,7 +9,7 @@ function run(input, wrappedStation, side)
         curGold = 0
         itemDetails = goldWrapped.list()
 
-        for i=1, #goldWrapped do
+        for i=1, #itemDetails do
             curItem = itemDetails[i]
             
             if curItem~= nil then
