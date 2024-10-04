@@ -28,7 +28,19 @@ function run(input, output, transfer_station, transfer, side)
             wrapped_station = peripheral.wrap(transfer_station)
             for i=1, #message["itemList"] do
                 curItemList = message["itemList"][i]
-                stat = transfer.transfer(input, output, curItemList["item"], curItemList["amount"])
+                -- handle multiple stack
+                
+                --handle multiple stacks (>64)
+                local amount = curItemList["amount"]
+                while amount ~= 0 do
+                    if amount < 64 then
+                        stat = transfer.transfer(input, output, curItemList["item"], 64)
+                        amount = amount - 64
+                    else
+                        stat = transfer.transfer(input, output, curItemList["item"], amount)
+                        amount = 0
+                    end
+                end
                 print("Transfer status: "..tostring(stat))
             end
             --load train
