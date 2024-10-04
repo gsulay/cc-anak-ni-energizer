@@ -1,7 +1,7 @@
 -- requestItem = require("requestItem")
 -- local station_name = "gold-station"
 -- charcoalInventory = ""
---edit pair 1223546
+--edit pair 1223547
 
 function charcoalRun(charcoalInventory, station_name, requestItem)
     charcoalWrapped = peripheral.wrap(charcoalInventory)
@@ -12,6 +12,7 @@ function charcoalRun(charcoalInventory, station_name, requestItem)
 
         for i=1, #itemDetails do
             curItem = itemDetails.getItemDetail(i)
+            print(curItem)
 
             if curItem ~= nil then
                 if curItem["name"] == "minecraft:charcoal" then
