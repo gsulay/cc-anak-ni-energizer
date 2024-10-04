@@ -1,5 +1,5 @@
 
-function run(input, wrappedStation, side):
+function run(input, wrappedStation, side)
     station_name = wrappedStation.getStationName()
     rednet.open(side)
     goldWrapped = peripheral.wrap(input)
