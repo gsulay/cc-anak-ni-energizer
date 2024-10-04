@@ -14,6 +14,7 @@ function charcoalRun(charcoalInventory, station_name, requestItem)
                 curCharcoal = curCharcoal + itemDetails[i]["count"]
             end
         end
+        print("current:Charcoal is at:"..curCharcoal)
 
         if (curCharcoal < 256) and (ongoing == false) then
             print("Requesting charcoal")
