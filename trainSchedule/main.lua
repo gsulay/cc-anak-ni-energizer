@@ -1,7 +1,7 @@
 -- local helper = require("helper")
 -- local station = peripheral.wrap("left")
 -- local side = "right"
---edit pair 3
+--edit pair 4
 
 --function if value is in table
 local function has_value (tab, val)
@@ -106,7 +106,7 @@ function run(helper, station, side, mainMon, trainMon)
 
         --laod train schedule
         schedule = helper.loadIdleSchedule(from, to, available_hub.getStationName())
-        station.setSchedule(schedule)
+        available_hub.setSchedule(schedule)
         trainMon.write("Schedule loaded from "..from.." to "..to)
 
     end
