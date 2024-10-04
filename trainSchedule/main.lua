@@ -1,7 +1,7 @@
 -- local helper = require("helper")
 -- local station = peripheral.wrap("left")
 -- local side = "right"
---edit pair 1
+--edit pair 2
 
 --function if value is in table
 local function has_value (tab, val)
@@ -82,15 +82,19 @@ function run(helper, station, side, mainMon, trainMon)
         end
 
             --waits for the train to arrive
-        -- timer = 0
+        timer = 0
         while true do
+            if timer > 20 then
+                print(error("Train not found"))
+            end
             if station.isTrainPresent() then
                 trainMon.write("Train found")
                 trainMonCursor = trainMonCursor + 1
                 trainMon.setCursorPos(1,trainMonCursor)
                 break
             end
-
+            timer = timer+1
+            sleep(1)
             -- trainMon.write(1, trainMon)
             -- if timer > 10 then
             --     print("Train not found")
