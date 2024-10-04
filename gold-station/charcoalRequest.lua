@@ -2,7 +2,7 @@
 -- local station_name = "gold-station"
 -- charcoalInventory = ""
 
-function charcoalRun(charc, station_name, requestItem)
+function charcoalRun(charcoalInventory, station_name, requestItem)
     charcoalWrapped = peripheral.wrap(charcoalInventory)
     ongoing = false
     while true do
