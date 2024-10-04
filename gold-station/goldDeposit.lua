@@ -3,7 +3,6 @@ function run(input, wrappedStation, side)
     station_name = wrappedStation.getStationName()
     rednet.open(side)
     goldWrapped = peripheral.wrap(input)
-    vaulWrapped = peripheral.wrap(output)
 
     while true do
         curGold = 0
