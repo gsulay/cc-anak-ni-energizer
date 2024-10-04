@@ -1,6 +1,6 @@
-requestItem = require("requestItem")
-local station_name = "gold-station"
-charcoalInventory = ""
+-- requestItem = require("requestItem")
+-- local station_name = "gold-station"
+-- charcoalInventory = ""
 
 function charcoalRun(charc, station_name, requestItem)
     charcoalWrapped = peripheral.wrap(charcoalInventory)
