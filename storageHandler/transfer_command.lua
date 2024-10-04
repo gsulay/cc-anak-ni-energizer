@@ -33,22 +33,23 @@ function run(input, output, transfer_station, transfer, side)
             end
             --load train
             trainMessage = {to = message["to"], from = station_name}
+            print("Broadcasting: "..station_name)
             rednet.broadcast(trainMessage,"train:"..station_name)
             sleep(1)
 
-            --stages for loading train
-                --check if train is present
-            while true do
-                if wrapped_station.isTrainPresent() then
-                    break
-                end
-            end
-                --check if train has left
-            while true do
-                if wrapped_station.isTrainPresent() == false then
-                    break
-                end
-            end
+            -- --stages for loading train
+            --     --check if train is present
+            -- while true do
+            --     if wrapped_station.isTrainPresent() then
+            --         break
+            --     end
+            -- end
+            --     --check if train has left
+            -- while true do
+            --     if wrapped_station.isTrainPresent() == false then
+            --         break
+            --     end
+            -- end
 
         end    
         
