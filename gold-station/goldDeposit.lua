@@ -1,4 +1,4 @@
--- edit pair 1
+-- edit pair 2
 function run(input, wrappedStation, side)
     station_name = wrappedStation.getStationName()
     rednet.open(side)
@@ -27,7 +27,7 @@ function run(input, wrappedStation, side)
             
             --check if train is present
             while true do
-                if wrapped_station.isTrainPresent() then
+                if wrappedStation.isTrainPresent() then
                     break
                 end
             end
