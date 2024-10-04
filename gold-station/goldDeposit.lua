@@ -1,4 +1,4 @@
-
+-- edit pair 1
 function run(input, wrappedStation, side)
     station_name = wrappedStation.getStationName()
     rednet.open(side)
@@ -22,13 +22,7 @@ function run(input, wrappedStation, side)
             term.clear()
             print("Gold threshold reached, moving to station")
             received = false
-            while received == false do
-                id, message = rednet.broadcast({from = station_name, to = "collection-hub"},"train:loading-station")
-                if id ~= nil then
-                    received = true
-                end
-            end
-
+            rednet.broadcast({from = station_name, to = "collection-hub"},"train:loading-station")
             print("Train sent from depot")
             
             --check if train is present
