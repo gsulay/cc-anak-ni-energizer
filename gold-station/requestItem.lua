@@ -10,7 +10,7 @@ function createItemListRequest(from, to, itemList)
         to = to,
         itemList = itemList
     }
-    return 
+    return newTable
 end
 
 return {createItemRequest = createItemRequest,
