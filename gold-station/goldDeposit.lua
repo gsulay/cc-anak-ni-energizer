@@ -1,4 +1,4 @@
--- edit pair 2
+-- edit pair 3
 function run(input, wrappedStation, side)
     station_name = wrappedStation.getStationName()
     rednet.open(side)
@@ -30,6 +30,7 @@ function run(input, wrappedStation, side)
                 if wrappedStation.isTrainPresent() then
                     break
                 end
+                sleep(1)
             end
             print("Moved items to train. Going to sleep")
         end
