@@ -13,7 +13,7 @@ function run(input, output, transfer_station, transfer, side)
         print("waiting on message...")
         received = false
         while received == false do
-            id, message = rednet.receive("storage-request", math.random(1,10))
+            id, message = rednet.receive("storage-request", math.random(5,10))
             if id ~= nil then
                 received = true
             end
