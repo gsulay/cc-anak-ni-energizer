@@ -15,7 +15,7 @@ function run(input, output, transfer_station, transfer, side)
         print("Message received: "..tostring(message))
         
         station = message["to"]
-        rednet.broadcast("received","storage:"..station)
+        rednet.broadcast("received","storage:"..message["to"])
     
         --check if load not to storage station
         if message["from"] ~= nil then
@@ -34,7 +34,7 @@ function run(input, output, transfer_station, transfer, side)
             --load train
             trainMessage = {to = message["to"], from = station_name}
             print("Broadcasting: "..message["to"])
-            rednet.broadcast(trainMessage,"train:"..message["to"])
+            rednet.broadcast(trainMessage,"train:"..station_name)
             sleep(1)
 
             -- --stages for loading train
