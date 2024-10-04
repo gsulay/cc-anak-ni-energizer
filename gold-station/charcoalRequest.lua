@@ -16,6 +16,7 @@ function charcoalRun(charcoalInventory, station_name, requestItem)
         end
 
         if (curCharcoal < 256) and (ongoing == false) then
+            print("Requesting charcoal")
             item1 = requestItem.createItemRequest("minecraft:charcoal", 256)
             request = requestItem.createItemListRequest(nil, station_name, {item1})
 
@@ -39,6 +40,7 @@ function charcoalRun(charcoalInventory, station_name, requestItem)
 
                 if curCharcoal >= 256 then
                     ongoing = false
+                    print("Charcoal threshold reached")
                     break
                 end
             end              
