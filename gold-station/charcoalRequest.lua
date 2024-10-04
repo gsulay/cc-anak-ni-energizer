@@ -12,12 +12,10 @@ function charcoalRun(charcoalInventory, station_name, requestItem, side)
 
         for i=1, 4 do
             curItem = charcoalWrapped.getItemDetail(i)
-            print(curItem)
 
             if curItem ~= nil then
                 if curItem["name"] == "minecraft:charcoal" then
                     curCharcoal = curCharcoal + curItem["count"]
-                    print(curCharcoal)
                 end
             end
         end
@@ -30,7 +28,9 @@ function charcoalRun(charcoalInventory, station_name, requestItem, side)
             request = requestItem.createItemListRequest(nil, station_name, {item1})
 
             rednet.broadcast(request, "storage-request")
+            print("waiting on storage:"..station_name)
             id, message = rednet.receive("storage:"..station_name)
+            ongoing = true 
             print("Status: "..message)
         end
 
