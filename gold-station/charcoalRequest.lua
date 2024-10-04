@@ -3,7 +3,8 @@
 -- charcoalInventory = ""
 --edit pair 1223548
 
-function charcoalRun(charcoalInventory, station_name, requestItem)
+function charcoalRun(charcoalInventory, station_name, requestItem, side)
+    rednet.open(side)
     charcoalWrapped = peripheral.wrap(charcoalInventory)
     ongoing = false
     while true do
