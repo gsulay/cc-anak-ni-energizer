@@ -32,6 +32,15 @@ function run(input, wrappedStation, side)
                 end
                 sleep(1)
             end
+
+            --wait for train to leave
+            while true do
+                if wrappedStation.isTrainPresent() == false then
+                    break
+                end
+                sleep(1)
+            end
+
             print("Moved items to train. Going to sleep")
         end
     end

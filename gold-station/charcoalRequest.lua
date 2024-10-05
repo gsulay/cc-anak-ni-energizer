@@ -31,7 +31,7 @@ function charcoalRun(charcoalInventory, station_name, requestItem, side)
             print("waiting on storage:"..station_name)
             received = false
             while received == false do
-                id, message = rednet.receive("storage:"..math.random(5,10))
+                id, message = rednet.receive("storage:"..station_name, math.random(5,10))
                 if id ~= nil then
                     received = true
                 end
